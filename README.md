@@ -16,8 +16,15 @@ Uses local LLM (llama.cpp) to understand 25+ DAGs without sending code to extern
 ~/Tools/llama.cpp/build/bin/llama-server \
   -m LiquidAI/LFM2-2.6B-GGUF/LFM2-2.6B-Q8_0.gguf \
   --port 8181 \
+  --host 127.0.0.1 \
   --ctx-size 65536 \
-  --cache-prompt
+  --n-predict 4096 \
+  --n-gpu-layers 99 \
+  --threads 4 \
+  --batch-size 2048 \
+  --cache-prompt \
+  --flash-attn on \
+  --metrics
 
 # 2. Install dependencies
 pip install -r requirements.txt
